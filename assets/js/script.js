@@ -26,7 +26,7 @@ const jump = () => {
         mario.classList.remove('jump');
         scores();
         saltar = true;
-    }, 500);
+    }, 400);
 }
 
 function scores() {
@@ -61,31 +61,28 @@ const loop = setInterval(() => {
             timePipe -= 0.0004;
             pipe.style.animation = `pipe-animation ${timePipe}s infinite linear`;
             if (timePipe == 0.9) {
-                setTimeout(() => {
-                    timePipe = 1.1;
-                })
+                timePipe += 0.3;
             }
+        }
 
-            if (timeCloud >= 14) {
-                timeCloud -= 0.005;
-                clouds.style.animation = `clouds-animation ${timeCloud}s infinite linear`;
-            }
+        if (timeCloud >= 14) {
+            timeCloud -= 0.005;
+            clouds.style.animation = `clouds-animation ${timeCloud}s infinite linear`;
+        }
 
-            if (timeCloud_ >= 12) {
-                timeCloud_ -= 0.005;
-                clouds_.style.animation = `clouds-animation ${timeCloud_}s infinite linear`;
-            }
+        if (timeCloud_ >= 12) {
+            timeCloud_ -= 0.005;
+            clouds_.style.animation = `clouds-animation ${timeCloud_}s infinite linear`;
+        }
 
-            if (timeCloud__ >= 8.5) {
-                timeCloud__ -= 0.005;
-                clouds__.style.animation = `clouds-animation ${timeCloud__}s infinite linear`;
-            }
+        if (timeCloud__ >= 8.5) {
+            timeCloud__ -= 0.005;
+            clouds__.style.animation = `clouds-animation ${timeCloud__}s infinite linear`;
+        }
 
-            if (timeCloud___ >= 7) {
-                timeCloud___ -= 0.005;
-                clouds_.style.animation = `clouds-animation ${timeCloud___}s infinite linear`;
-            }
-
+        if (timeCloud___ >= 7) {
+            timeCloud___ -= 0.005;
+            clouds_.style.animation = `clouds-animation ${timeCloud___}s infinite linear`;
         }
     }
 }, 10);
@@ -94,7 +91,7 @@ restart_button.addEventListener('click', () => {
     if ((nick_user.value).length > 0) {
         jogadas = JSON.parse(localStorage.getItem('jogadas')) ? JSON.parse(localStorage.getItem('jogadas')) : [];
         jogadas.push({
-            jogador: nick_user.value,
+            jogador: ((nick_user.value).replace(/<[^>]*>/g, "")).trim(),
             pontuacao: pontuacao
         })
         jogadas.sort((a, b) => b.pontuacao - a.pontuacao);
