@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgb(131, 103, 103), rgb(82, 64, 64));
+    height: 100vh;
+    width: 100vw;
+}
+
+.console {
+    height: 100vh;
+    ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-board {
+    z-index: 2;
+    position: relative;
+    width: 70%;
+    height: 65%;
+    border-bottom: 20px solid rgb(14, 196, 14);
+    margin: 0 auto;
+    overflow: hidden;
+
+    background: linear-gradient(#87CEEB, #E0F6FF);
+
+}
+
+.console_style {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    z-index: 1;
+    width: 80%;
+    height: 70%;
+    background-color: black;
+    border-radius: 10%;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+.mario {
+    position: absolute;
+    width: 150px;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+.clouds {
+    position: absolute;
+    margin-top: 100px;
+    width: 550px;
+    animation: clouds-animation 18s infinite linear;
+}
+
+.clouds_ {
+    position: absolute;
+    margin-top: 150px;
+    width: 400px;
+    animation: clouds-animation 16s infinite linear;
+}
+
+.clouds__ {
+    position: absolute;
+    margin-top: 50px;
+    width: 500px;
+    animation: clouds-animation 12s infinite linear;
+}
+
+.clouds___ {
+    position: absolute;
+    margin-top: 50px;
+    width: 500px;
+    animation: clouds-animation 10s infinite linear;
+}
+
+span {
+    display: block;
+}
+
+.score {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+
+    color: rgb(189, 174, 93);
+}
+
+.placar {
+    display: none;
+}
+
+.end_game_message {
+    z-index: 3;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.end_game_message button {
+    font-size: 3rem;
+    background: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.end_game_message button:hover {
+    background: black;
+}
+
+
+.end_game_message button a {
+    color: black;
+    text-decoration: none;
+}
+
+.end_game_message button:hover a {
+    color: white;
+}
+
+.end_game_message.show {
+    display: flex;
+}
+
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input {
+    position: relative;
+    width: 400px;
+}
+
+.input input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #1D2B3A;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    font-size: 32px;
+    transition: 0.5s;
+}
+
+.input span {
+    position: absolute;
+    top: 24%;
+    left: 0;
+    padding: 10px;
+    background: white;
+    color: #1D2B3A;
+    padding: 0 10px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-radius: 2px;
+    font-size: 20px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    pointer-events: none;
+    transform: translateX(10px) translateY(-7px);
+}
+
+.input input {
+    border: 1px solid white;
+}
